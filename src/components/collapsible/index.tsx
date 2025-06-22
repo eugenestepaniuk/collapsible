@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import type { ReactNode, ReactElement } from "react";
-import styles from "./Collapsible.module.scss";
+import styles from "./styles.module.scss";
+import { ToggleButton } from "../toggle-button";
 
 interface CollapsibleProps {
   children?: ReactNode;
@@ -75,23 +76,19 @@ export const Collapsible: React.FC<CollapsibleProps> = ({
           >
             {children}
             {expanded && (
-              <button
-                className={styles.toggleIconBtn}
+              <ToggleButton
+                expanded={expanded}
                 onClick={handleToggle}
                 style={{
                   marginLeft: 4,
                   paddingTop: 8,
                   display: "inline-flex",
                 }}
-              >
-                <span className={expanded ? styles.iconUp : styles.iconDown} />
-              </button>
+              />
             )}
           </div>
           {!expanded && (showToggle || expanded) && (
-            <button className={styles.toggleIconBtn} onClick={handleToggle}>
-              <span className={expanded ? styles.iconUp : styles.iconDown} />
-            </button>
+            <ToggleButton expanded={expanded} onClick={handleToggle} />
           )}
         </div>
       )}
@@ -102,17 +99,11 @@ export const Collapsible: React.FC<CollapsibleProps> = ({
             <div className={styles.childItem}>
               {firstValidElement}
               {showToggle && (
-                <button
-                  className={styles.toggleIconBtn}
+                <ToggleButton
+                  expanded={expanded}
                   onClick={handleToggle}
-                  style={{
-                    marginLeft: 4,
-                  }}
-                >
-                  <span
-                    className={expanded ? styles.iconUp : styles.iconDown}
-                  />
-                </button>
+                  style={{ marginLeft: 4 }}
+                />
               )}
             </div>
           </div>
