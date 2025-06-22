@@ -1,0 +1,83 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 16px;
+  background-color: #fdfdfd;
+  border-radius: 12px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.rowLayout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.textContent {
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.toggleIconBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid #a9aaab;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.iconDown,
+.iconUp {
+  border: solid #a9aaab;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px;
+  transition: transform 0.2s ease;
+}
+
+.iconDown {
+  transform: rotate(45deg);
+}
+
+.iconUp {
+  transform: rotate(-135deg);
+}
+
+.listWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.listWrapperWithToggle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.restList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.childItem {
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  width: 100%;
+  box-sizing: border-box;
+}
