@@ -13,7 +13,7 @@ function App() {
       <Collapsible width={200}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni impedit
         voluptates officiis ipsam incidunt minus explicabo quasi natus
-        dignissimos eveniet?
+        dignissimos eveniet amet consectetur?
       </Collapsible>
       <Collapsible>
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum sint,
@@ -40,13 +40,13 @@ function App() {
         quasi debitis corrupti blanditiis impedit! Laboriosam maxime
         consequuntur tenetur placeat doloribus earum vel sunt?
       </Collapsible>
-      <Collapsible>{[<div key={1}>Item 1</div>]}</Collapsible>
       <Collapsible>
-        {[
-          <button key={1}>Button 1</button>,
-          <button key={2}>Button 2</button>,
-          <button key={3}>Button 3</button>,
-        ]}
+        <div key={1}>Item 1</div>
+      </Collapsible>
+      <Collapsible>
+        <button key={1}>Button 1</button>
+        <button key={2}>Button 2</button>
+        <button key={3}>Button 3</button>
       </Collapsible>
       <table style={{ width: "100%", marginTop: 20, tableLayout: "fixed" }}>
         <colgroup>

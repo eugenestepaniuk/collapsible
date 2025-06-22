@@ -68,8 +68,21 @@ export const Collapsible: React.FC<CollapsibleProps> = ({
             }}
           >
             {children}
+            {expanded && (
+              <button
+                className={styles.toggleIconBtn}
+                onClick={handleToggle}
+                style={{
+                  marginLeft: 4,
+                  paddingTop: 8,
+                  display: "inline-flex",
+                }}
+              >
+                <span className={expanded ? styles.iconUp : styles.iconDown} />
+              </button>
+            )}
           </div>
-          {(showToggle || expanded) && (
+          {!expanded && (showToggle || expanded) && (
             <button className={styles.toggleIconBtn} onClick={handleToggle}>
               <span className={expanded ? styles.iconUp : styles.iconDown} />
             </button>
