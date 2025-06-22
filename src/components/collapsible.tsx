@@ -95,12 +95,20 @@ export const Collapsible: React.FC<CollapsibleProps> = ({
           <div className={styles.rowLayout}>
             <div className={styles.childItem}>
               {(children as ReactElement[]).filter(Boolean)[0]}
+              {showToggle && (
+                <button
+                  className={styles.toggleIconBtn}
+                  onClick={handleToggle}
+                  style={{
+                    marginLeft: 4,
+                  }}
+                >
+                  <span
+                    className={expanded ? styles.iconUp : styles.iconDown}
+                  />
+                </button>
+              )}
             </div>
-            {showToggle && (
-              <button className={styles.toggleIconBtn} onClick={handleToggle}>
-                <span className={expanded ? styles.iconUp : styles.iconDown} />
-              </button>
-            )}
           </div>
 
           {expanded && (
