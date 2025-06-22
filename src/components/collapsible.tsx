@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import type { ReactNode, ReactElement } from "react";
 import styles from "./Collapsible.module.scss";
 
@@ -20,6 +20,13 @@ export const Collapsible: React.FC<CollapsibleProps> = ({
   const isArray = Array.isArray(children);
   const isNull = children === null || children === undefined;
 
+  const validElements = useMemo(() => {
+    return isArray ? (children as ReactElement[]).filter(Boolean) : [];
+  }, [children, isArray]);
+
+  const firstValidElement = validElements[0] || null;
+  const restValidElements = validElements.slice(1);
+
   useEffect(() => {
     const updateShowToggle = (): void => {
       if (isText && textRef.current && wrapperRef.current) {
@@ -29,7 +36,6 @@ export const Collapsible: React.FC<CollapsibleProps> = ({
       }
 
       if (isArray) {
-        const validElements = (children as ReactElement[]).filter(Boolean);
         setShowToggle(validElements.length > 1);
       }
     };
@@ -44,7 +50,7 @@ export const Collapsible: React.FC<CollapsibleProps> = ({
     return () => {
       resizeObserver.disconnect();
     };
-  }, [children, isText, isArray]);
+  }, [validElements, isText, isArray]);
 
   if (isNull) return null;
 
@@ -94,7 +100,7 @@ export const Collapsible: React.FC<CollapsibleProps> = ({
         <div className={styles.listWrapper}>
           <div className={styles.rowLayout}>
             <div className={styles.childItem}>
-              {(children as ReactElement[]).filter(Boolean)[0]}
+              {firstValidElement}
               {showToggle && (
                 <button
                   className={styles.toggleIconBtn}
@@ -113,14 +119,11 @@ export const Collapsible: React.FC<CollapsibleProps> = ({
 
           {expanded && (
             <div className={styles.restList}>
-              {(children as ReactElement[])
-                .filter(Boolean)
-                .slice(1)
-                .map((child, index) => (
-                  <div key={index} className={styles.childItem}>
-                    {child}
-                  </div>
-                ))}
+              {restValidElements.map((child, index) => (
+                <div key={index} className={styles.childItem}>
+                  {child}
+                </div>
+              ))}
             </div>
           )}
         </div>
