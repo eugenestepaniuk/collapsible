@@ -12,21 +12,21 @@
   border: 1.5px solid #a9aaab;
   box-sizing: border-box;
   transition: border-color 0.2s;
-}
 
-.iconDown,
-.iconUp {
-  border: solid #a9aaab;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 2px;
-  transition: transform 0.2s ease;
-}
+  .iconDown,
+  .iconUp {
+    border: solid #a9aaab;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 2px;
+    transition: transform 0.2s ease;
+  }
 
-.iconDown {
-  transform: rotate(45deg);
-}
+  .iconDown {
+    transform: rotate(45deg);
+  }
 
-.iconUp {
-  transform: rotate(-135deg);
+  .iconUp {
+    transform: rotate(-135deg);
+  }
 }
